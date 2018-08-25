@@ -1,0 +1,30 @@
+.root-div{
+   
+}
+header{
+    background-color:hsla(240,50%,60%,0.6) 
+}
+.banner{
+    width:1200px;min-width:1000px;
+    margin:0 auto;
+    padding:10px;
+    overflow: hidden
+}
+.banner a{
+    margin: 0 10px;
+    color:#ffffff
+}
+.logo {
+    width: 120px;
+    height: 31px;
+    border-radius: 6px;
+    float: left;
+    background:white url('../images/HE.png') no-repeat center/contain;
+}
+
+footer{
+    padding:15px 0;
+    text-align: center;
+    color:#ffffff;
+    background: rgba(0,0,0,.5);
+}
