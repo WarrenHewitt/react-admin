@@ -15,10 +15,3 @@ const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 5656; // 修改默认值
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000; // 修改默认值
 openBrowser(urls.localUrlForBrowser); //注释该行
 ```
-
-
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint-staged"
-    }
-  }
