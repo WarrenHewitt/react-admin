@@ -1,22 +1,42 @@
-.App {
-  text-align: center;
-}
+.App { }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
+.app-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 5vh;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.app-logo {
+  height: 4vh;
+  margin-top: .5vh;
+}
+
+.h-title{
+  display: inline-block;
+  height: 5vh;
+  margin-left: 1vmax;
+  vertical-align: sub;
+  font-size: calc(10px + 1vmin);
+}
+.content{
+  display: flex;
+}
+.menu {
+  width: 20vh;
+  height: 95vh;
+  background-color: #408065;
+}
+.content-page{
+  width: calc(100% - 20vh);
+  height: 95vh;
+  background-color: rgb(87, 166, 197);
+}
+.page {
+  height: 90vh;
+}
+.footer{
+  height: 5vh;
+  text-align: center;
+  line-height: 5vh;
+  background-color: rgb(247, 126, 46);
 }
