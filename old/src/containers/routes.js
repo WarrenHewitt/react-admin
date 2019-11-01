@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Home from '../components/home/home.js'
 
 import Menu from '../components/home/menu.js'
-import Other from '../components/page2/page2.js'
+import Other from '../components/page2/page2.js.js.js'
 
 import Login from '../components/login/login.js'
 

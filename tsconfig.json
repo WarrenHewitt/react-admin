@@ -20,6 +20,6 @@
     "jsx": "react"
   },
   "include": [
-    "src"
+    "src", "old/src/components/page1", "old/src/components/page2"
   ]
 }

@@ -5,8 +5,8 @@ import '../../public/css/home.scss'
 
 import Menus from './menu';
 
-import PageOne from '../page1/page1.js'
-import PageTwo from '../page2/page2.js'
+import PageOne from '../page1/page1.js.js.js'
+import PageTwo from '../page2/page2.js.js.js'
 
 import Mock from 'mockjs'
 
