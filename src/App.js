@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom';
 import { Home } from './pages/home/home';
 import { Menu, Icon } from 'antd';
 
+import logo from './public/logo.png';
+
 const { SubMenu } = Menu;
 
 const Header = () => {
     return (<header className="app-header">
-        <img src="./logo.png" className="app-logo" alt="logo" />
+        <img src={ logo } className="app-logo" alt="logo" />
         <span className="h-title">REACT-ADMIN</span>
     </header>);
 }
@@ -29,16 +31,16 @@ class App extends React.Component {
             children: [{
                 id: '1-1',
                 name: 'page1-1',
-                url: '/page1',
+                url: '/page1/page1-9090',
             }]
         }, {
             id: '2',
             icon: 'desktop',
-            name: 'page2',
+            name: 'practice',
             children: [{
                 id: '2-1',
-                name: 'page2-1',
-                url: '/page2',
+                name: 'index',
+                url: '/practice/index',
             }]
         }]
     };

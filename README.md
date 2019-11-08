@@ -1,4 +1,4 @@
-利用 npx create-react-app my-app --typescript 创建的新 react 与 typescript 结合的项目
+利用 npx create-react-app my-app 
 
 - `npm start`
 
@@ -8,6 +8,8 @@
 
 - `npm run eject` 单项操作，拿回 webpack 等的配置
 
----
+> 安装 antd 
+`npm install antd --save`
 
-- `React.FC` 是 `types/react` 中的一个类型
+> 安装 react-router
+`npm install react-router-dom`
