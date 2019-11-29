@@ -21,26 +21,17 @@ class App extends React.Component {
     state = {
         collapsed: false,
         menuList: [{
-            id: '0',
-            icon: 'inbox',
-            name: 'page0'
-        }, {
             id: '1',
-            icon: 'pie-chart',
-            name: 'page1',
-            children: [{
-                id: '1-1',
-                name: 'page1-1',
-                url: '/page1/page1-9090',
-            }]
-        }, {
-            id: '2',
             icon: 'desktop',
             name: 'practice',
             children: [{
-                id: '2-1',
+                id: '1-1',
                 name: 'index',
                 url: '/practice/index',
+            }, {
+                id: '1-2',
+                name: 'react',
+                url: '/practice/param/react',
             }]
         }]
     };

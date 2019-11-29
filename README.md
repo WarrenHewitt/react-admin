@@ -1,4 +1,4 @@
-利用 npx create-react-app my-app 
+# 利用 npx create-react-app my-app 
 
 - `npm start`
 
@@ -13,3 +13,23 @@
 
 > 安装 react-router
 `npm install react-router-dom`
+
+# 项目说明
+
+目录
+```
+|- old  (原有代码,待迁移)
+|- src
+    |- App.js
+    |- index.js
+    |- pages
+        |- home
+            |- home.js
+        |- practice
+            |- hoc  (高阶组件实践)
+            |- index.js
+            |- react.js
+        |- welcome
+            |- welcome.js
+    |- serviceWorker.js
+```
