@@ -12,26 +12,29 @@ const GetParams = () => {
 }
 
 class BeClone extends Component {
-    render() {
-        return  <h3>be clone h3 {this.props.name}</h3>
+    constructor(prop) {
+        super(prop);
+        this.state = {
+            name: '123'
+        }
     }
-}
 
-function ac() {
-    return '<div>diivvi</div>'
+    render() {
+        return  <div>be clone h3</div>
+    }
 }
 
 class ReactComponent extends Component{
     render() {
-        // const NewEle = React.cloneElement(ac(), { name: '233333name' })
+        const Re = React.createElement('div', null, '标签');
+        // console.log(Re);
+        const NewEle = React.cloneElement(Re, { name: '233333name' })
+        // <h3>使用初始props：{ this.props.name }</h3>
+        // <GetParams></GetParams>
+        // <div style={{ border: '1px solid #fff',margin: '10px',padding:'10px'}}></div>
         return (<div>
-            <h3>使用初始props：{ this.props.name }</h3>
-            <GetParams></GetParams>
-            <div style={{ border: '1px solid #fff',margin: '10px',padding:'10px'}}>
-                <UseHoc/>
-            </div>
-            {/* <NewEle/> */}
-        </div>)
+            {Re}  { NewEle }
+        </div>);
     }
 }  
 
