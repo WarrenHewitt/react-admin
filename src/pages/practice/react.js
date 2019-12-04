@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { useParams } from 'react-router-dom';
 
+/** 装饰器实践 */
+import DecoratorClass from './decorator';
+
 
 /** 引入高阶组件 */
 import UseHoc from './hoc/useHoc'
@@ -22,6 +25,10 @@ class ReactComponent extends Component{
         const b = <b>this is b</b>
         const ClEle = React.cloneElement(b);
         const ClReactEle = React.cloneElement(CeClass);
+
+        // const dec = DecoratorClass;
+
+        // console.log('decorator:',dec.name);
 
         return (<div>
             <div style={{ border: '1px solid #fff',margin: '10px',padding:'10px'}}>

@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 
-function decoratorPrc(target) {
-    target.fn = function() {
-        alert(123);
+
+
+@decoratorPrc
+class DecoratorClass{
+    fn() {
+        console.log('fn: ', this.name);
     }
 }
 
-// @decoratorPrc
-// class DecoratorClass extends Component{
-    
-// }
+function decoratorPrc(target) {
+    console.log('target', target);
 
-// export default DecoratorClass;
+    return class extends target {
+        name= 'hew'
+    }
+}
+
+
+console.log(new DecoratorClass().fn());
+
+export default {a:12};
