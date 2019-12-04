@@ -4,36 +4,41 @@ import { useParams } from 'react-router-dom';
 
 /** 引入高阶组件 */
 import UseHoc from './hoc/useHoc'
-import { func } from 'prop-types';
+import BeClone from './temp'
+
+const FunComponent = () => {
+    return  <h3>这是创建的函数组件</h3>
+}
 
 const GetParams = () => {
     const { id } = useParams();
     return  <h3>router param id: { id }</h3>
 }
 
-class BeClone extends Component {
-    constructor(prop) {
-        super(prop);
-        this.state = {
-            name: '123'
-        }
-    }
-
-    render() {
-        return  <div>be clone h3</div>
-    }
-}
-
 class ReactComponent extends Component{
     render() {
-        const Re = React.createElement('div', null, '标签');
-        // console.log(Re);
-        const NewEle = React.cloneElement(Re, { name: '233333name' })
-        // <h3>使用初始props：{ this.props.name }</h3>
-        // <GetParams></GetParams>
-        // <div style={{ border: '1px solid #fff',margin: '10px',padding:'10px'}}></div>
+        const CeFunction = React.createElement(FunComponent, null);
+        const CeClass = React.createElement(BeClone, null);
+        const b = <b>this is b</b>
+        const ClEle = React.cloneElement(b);
+        const ClReactEle = React.cloneElement(CeClass);
+
         return (<div>
-            {Re}  { NewEle }
+            <div style={{ border: '1px solid #fff',margin: '10px',padding:'10px'}}>
+                <h3>使用初始props：{ this.props.name }</h3>
+                <GetParams></GetParams>
+            </div>
+
+            <div style={{ border: '1px solid #fff',margin: '10px',padding:'10px'}}>
+                <h2>以下是create</h2>
+                { CeClass}  { CeFunction } 
+                <h2>以下是克隆</h2>
+                { ClEle } { ClReactEle }
+            </div>
+     
+            <div style={{ border: '1px solid #fff',margin: '10px',padding:'10px'}}>
+                <UseHoc/>
+            </div>
         </div>);
     }
 }  

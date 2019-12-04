@@ -15,7 +15,6 @@ export default class ComponentTwo extends Component{
     }
 
     handleShowModal = () => {
-        console.log(1233)
         this.setState({
             visible: true
         })
@@ -37,20 +36,18 @@ export default class ComponentTwo extends Component{
         const { type } = this.props;
         const { visible } = this.state;
 
-        console.log('two prop', this.props);
+        console.log('componnetTwo prop: ', this.props);
+
         return(<div>
-            nihao
+            <Modal
+                title={ `component ${type}` }
+                visible={ visible }
+                onOk={ this.handleOk }
+                onCancel={ this.handleCancel }
+            >
+                <p>请输入：</p>
+                <Input/>
+            </Modal>
         </div>)
-        // return(<div>
-        //     <Modal
-        //         title={ `component ${type}` }
-        //         visible={ visible }
-        //         onOk={ this.handleOk }
-        //         onCancel={ this.handleCancel }
-        //     >
-        //         <p>请输入：</p>
-        //         <Input/>
-        //     </Modal>
-        // </div>)
     }
 }

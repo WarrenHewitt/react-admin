@@ -32,27 +32,28 @@ export default  (paramsObj = {
             console.log('hoc extend two');
         }
 
-        render() {
-            console.log(super.render());
-            const { type, needRender } = paramsObj;
-            let NewEle = '';
-            if(needRender) {
-                const Ele = super.render();
-                const newProp = {
-                    nameNew: 'hw'
-                }              
-                // NewEle = React.cloneElement(Ele, newProp,);
-            }
-            return   '<NewEle/> '
-            // return (<div>
-            //     <h1 style={{ borderTop: '1px solid #fff', marginTop: '10px' }}>HOC公共不变标题</h1>
-            //     <Button onClick={this.handleShowModal}>hoc common btn： {type}</Button>
-            //     <NewEle/> 
+        cloneClick() {
+            console.log('clone click!!!')
+        }
 
-            //     {/* 这里有两种方式：也可以替换为组件形式：<InputComponent/> */}
-            //     {/* render 劫持  这里可以通过一些判断，选择是否需要render操作 */}
-            //     { needRender ? 123 : super.render() }
-            // </div>)
+        render() {
+            const Ele = super.render();
+            const newProp = {
+                onClick: this.cloneClick
+            }     
+                        
+            const NewEle = React.cloneElement(Ele, { ...newProp });
+       
+            return (<div>
+                <h1 style={{ borderTop: '1px solid #fff', marginTop: '10px' }}>HOC公共不变标题</h1>
+                <Button onClick={this.handleShowModal}>hoc common btn</Button>
+
+                {/* 这里有两种方式：也可以替换为组件形式：<InputComponent/> */}
+                {/* render 劫持  这里可以通过一些判断，选择是否需要render操作 */}
+                { NewEle }
+
+                {/* 这里也可以直接 super.render() */}
+            </div>)
         }
     }
 }
