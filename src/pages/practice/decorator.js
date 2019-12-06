@@ -1,23 +1,56 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import { deprecate } from 'core-decorators';
+
+import './a.js';
+
+// import * as a from './a.js'
 
 
 
-@decoratorPrc
+// @addProperty
 class DecoratorClass{
-    fn() {
-        console.log('fn: ', this.name);
+    @deprecate('We stopped facepalming')
+    facepalmHard() {}
+
+    @log
+    add(a, b) {
+      return a + b;
     }
 }
 
-function decoratorPrc(target) {
-    console.log('target', target);
-
-    return class extends target {
-        name= 'hew'
-    }
+function addProperty(target) {
+    target.name = 'name-core'
 }
 
+function log(target, name, descriptor) {
+    var oldValue = descriptor.value;
+  
+    descriptor.value = function() {
+      console.log(`Calling ${name} with`, arguments);
+      return oldValue.apply(this, arguments);
+    };
+  
+    return descriptor;
+}
 
-console.log(new DecoratorClass().fn());
+const dc = new DecoratorClass();
 
-export default {a:12};
+
+dc.facepalmHard();
+dc.add(1,2);
+console.log(dc.name);
+
+// function testable(target) {
+
+//     return class extends target {
+//         name = 'werr';
+//     }
+// }
+  
+// @testable
+// class MyTestableClass {}
+
+// // MyTestableClass.name = 'hew'
+
+
+// console.log(new MyTestableClass().name) // true

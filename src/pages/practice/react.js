@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { useParams } from 'react-router-dom';
 
 /** 装饰器实践 */
-import DecoratorClass from './decorator';
+import './decorator';
 
 
 /** 引入高阶组件 */
