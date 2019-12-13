@@ -26,10 +26,6 @@ class ReactComponent extends Component{
         const ClEle = React.cloneElement(b);
         const ClReactEle = React.cloneElement(CeClass);
 
-        // const dec = DecoratorClass;
-
-        // console.log('decorator:',dec.name);
-
         return (<div>
             <div style={{ border: '1px solid #fff',margin: '10px',padding:'10px'}}>
                 <h3>使用初始props：{ this.props.name }</h3>
@@ -45,6 +41,10 @@ class ReactComponent extends Component{
      
             <div style={{ border: '1px solid #fff',margin: '10px',padding:'10px'}}>
                 <UseHoc/>
+            </div>
+           
+            <div className="custom-part">
+                装饰器示例，查看控制台输出
             </div>
         </div>);
     }

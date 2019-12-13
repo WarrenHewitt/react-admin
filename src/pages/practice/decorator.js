@@ -1,56 +1,50 @@
 // import React, { Component } from 'react';
 import { deprecate } from 'core-decorators';
 
-import './a.js';
+@addStaticProperty
+class DecoratorClass {
+    constructor() {
+        this.name = 'con-name'
+    }
 
-// import * as a from './a.js'
-
-
-
-// @addProperty
-class DecoratorClass{
     @deprecate('We stopped facepalming')
-    facepalmHard() {}
+    facepalmHard() { }
 
     @log
     add(a, b) {
-      return a + b;
+        return a + b;
+    }
+
+    @readonly
+    getName() {
+        console.log('getName', this.name);
     }
 }
 
-function addProperty(target) {
-    target.name = 'name-core'
+function addStaticProperty(target) {
+    target.SName = 'name-core'
+}
+
+function readonly(target, name, descriptor) {
+    console.log('readonly fn：', name); // readonly fn： getName
+    descriptor.writable = false;
+    return descriptor;
 }
 
 function log(target, name, descriptor) {
     var oldValue = descriptor.value;
-  
-    descriptor.value = function() {
-      console.log(`Calling ${name} with`, arguments);
-      return oldValue.apply(this, arguments);
+    descriptor.value = function () {
+        console.log(`Calling ${name} method`);
+        return oldValue.apply(this, arguments);
     };
-  
+
     return descriptor;
 }
 
 const dc = new DecoratorClass();
 
-
 dc.facepalmHard();
-dc.add(1,2);
-console.log(dc.name);
+dc.add(1, 2);
+dc.getName();
 
-// function testable(target) {
-
-//     return class extends target {
-//         name = 'werr';
-//     }
-// }
-  
-// @testable
-// class MyTestableClass {}
-
-// // MyTestableClass.name = 'hew'
-
-
-// console.log(new MyTestableClass().name) // true
+console.log(DecoratorClass.SName); // name-core

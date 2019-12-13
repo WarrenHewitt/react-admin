@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Button } from 'antd';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
+import './style/index.scss';
 import { Link } from 'react-router-dom';
 import { Home } from './pages/home/home';
 import { Menu, Icon } from 'antd';
@@ -33,6 +33,17 @@ class App extends React.Component {
                 name: 'react',
                 url: '/practice/param/react',
             }]
+        }, {
+            id: '2',
+            name: '第三方库示例',
+            icon: 'desktop',
+            children: [
+                {
+                    id: '2-1',
+                    name: 'sheetJs',
+                    url: '/third/sheet-js'
+                }
+            ]
         }]
     };
 
