@@ -38,11 +38,15 @@ class App extends React.Component {
             name: '第三方库示例',
             icon: 'desktop',
             children: [
-                {
-                    id: '2-1',
-                    name: 'sheetJs',
-                    url: '/third/sheet-js'
-                }
+                { id: '2-1', name: 'sheetJs', url: '/third/sheet-js' },
+            ]
+        }, {
+            id: '3',
+            name: 'canvas',
+            icon: 'desktop',
+            children: [
+                { id: '3-1', name: 'canvas-移动', url: '/canvas/canvas' },
+                { id: '3-2', name: 'canvas-画布', url: '/canvas/drawBoard' }
             ]
         }]
     };

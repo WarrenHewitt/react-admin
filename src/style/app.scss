@@ -33,7 +33,44 @@
 }
 .page {
   height: 90vh;
+  min-height: 650px;
+  overflow: auto;
+  &::-webkit-scrollbar {  
+    /* // Y轴方向滚动条的宽度 */
+    width: 5px; 
+    /* // X轴方向滚动条的高度 */
+    height: 5px;
+    background-color: rgb(194, 194, 194);
+  }
+  /* 滑动条前后部分的样式（默认是箭头），可设置背景图片 */
+  &::-webkit-scrollbar-button:vertical:increment  {  
+    background-color:rgb(231, 231, 231);  
+    height:10px;  
+  }
+  &::-webkit-scrollbar-button:horizontal:decrement  {  
+    background-color:rgb(231, 231, 231);  
+    height:10px;  
+  }
+  /* 滚动槽的颜色v */
+  &::-webkit-scrollbar-track-piece {  
+    background-color:rgb(231, 231, 231);  
+  } 
+  /* 滑块的颜色   */
+  &::-webkit-scrollbar-thumb:vertical {  
+    height: 50px;  
+    background-color: #9e9e9e;  
+    border:1px solid #9e9e9e;  
+    border-radius:10px;  
+  } 
+  &::-webkit-scrollbar-thumb:horizontal {  
+    height: 50px;  
+    background-color: #9e9e9e;  
+    border:1px solid #9e9e9e;  
+    border-radius:10px;  
+  } 
 }
+
+
 .footer{
   height: 5vh;
   text-align: center;
