@@ -7,36 +7,32 @@ export default class Canvas extends Component {
         let mouseDown = false;
         let deltaX = 0;
         let deltaY = 0;
+        let text = 'hello'
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
         const cw = canvas.width, ch = canvas.height;
         const rect = {
             x: 20,
             y: 20,
-            width: 200,
-            height: 100
+            width: 150,
+            height: 50
         }
 
-        // const canvasLeft = canvas.getBoundingClientRect().left;
-
-        /** 画矩形 */
-        ctx.rect(rect.x, rect.y, rect.width, rect.height)
-        ctx.stroke();
-
-        // ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
-
+        /** 设置文字和边框样式 */
         ctx.font="16px Arial";
-        ctx.fillStyle = "#008600"; 
-        /** 设置为 center 时，文字段的中心会在 x 点 */
+        ctx.fillStyle = "#fff"; 
+        /** 设置为 center 时，文字段的中心会在 fillText的 x 点 */
         ctx.textAlign = 'center';
-        // 设置字体内容，以及在画布上的位置
-        ctx.fillText("Hello!", 120, 75);
+        ctx.lineWidth = '2';
+        ctx.strokeStyle = '#fff';
 
+        strokeRect()
 
         const inputEle = document.getElementById('inputEle');
         inputEle.onkeyup =  function(e) {
             if(e.keyCode === 13) {
-                console.log(inputEle.value)
+                text = inputEle.value
+                strokeRect()
                 inputEle.setAttribute('style', `display:none`)
             }
         }
@@ -52,7 +48,9 @@ export default class Canvas extends Component {
             deltaY=e.clientY - rect.y;
             mouseDown = true
         };  
+
         const judgeW = cw-rect.width, judgeH = ch-rect.height;
+
         canvas.onmousemove = function(e){ 
             if(mouseDown) {
                 /** 相减即可获得矩形左边界与canvas左边界之间的长度 */
@@ -69,8 +67,7 @@ export default class Canvas extends Component {
                     dy = judgeH;
                 }
                 rect.x = dx;
-                rect.y = dy;
-                clearRect()
+                rect.y = dy; 
                 strokeRect()
             }
         };  
@@ -78,27 +75,21 @@ export default class Canvas extends Component {
             mouseDown = false
         };  
 
-        /** isPointInPath 方法不支持 fillRect(),strokeRect() */
-        console.log(ctx.isPointInPath(20, 20))
-
-
-        // setTimeout(() => {
-        //     /** 这里如果不调用 beginPath 历史的矩形会重新被绘制 */
-        //     ctx.beginPath() 
-        //     ctx.rect(rect.x +100, rect.y+100, rect.width, rect.height)
-        //     ctx.stroke();
-        // }, 4000)
-
+        /** 清除指定区域 */
         function clearRect() {
-             /** 清除指定区域 */
             ctx.clearRect(0, 0, cw, ch)
         }
         
+        /** 画矩形 */
         function strokeRect() {
+            clearRect()
+
+            /** 这里如果不调用 beginPath 历史的矩形会重新被绘制 */
             ctx.beginPath() 
             ctx.rect(rect.x, rect.y, rect.width, rect.height)
             ctx.stroke();
-            ctx.fillText("Hello!", rect.x + 100, rect.y + 55);
+            // 设置字体内容，以及在画布上的位置
+            ctx.fillText(text, rect.x + 70, rect.y + 30);
         }
         
     }

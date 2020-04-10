@@ -1,12 +1,25 @@
 import React from 'react';
 // import { Button } from 'antd';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './style/index.scss';
-import { Link } from 'react-router-dom';
-import { Home } from './pages/home/home';
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
+import { TeamOutlined } from '@ant-design/icons';
 
 import logo from './public/logo.png';
+
+/**
+ * @des 页面组件 
+ * */ 
+import Welcome from './pages/welcome/welcome';
+import ReactComponent from './pages/practice/react';
+import PracticeIndex from './pages/practice/index';
+
+import SheetJs from './pages/third/sheetJs/sheetJs';
+import Html2Canvas from './pages/third/html2Canvas/html2Canvas';
+import JsPdf from './pages/third/jsPdf/jsPdf';
+
+import Canvas from './pages/canvas/canvas';
+import DrawBoard from './pages/canvas/drawBoard';
 
 const { SubMenu } = Menu;
 
@@ -39,6 +52,8 @@ class App extends React.Component {
             icon: 'desktop',
             children: [
                 { id: '2-1', name: 'sheetJs', url: '/third/sheet-js' },
+                { id: '2-2', name: 'html2canvas', url: '/third/html2canvas' },
+                { id: '2-3', name: 'jsPdf', url: '/third/jsPdf' },
             ]
         }, {
             id: '3',
@@ -63,7 +78,7 @@ class App extends React.Component {
                 key={v.id}
                 title={
                     <span>
-                        <Icon type={ v.icon } />
+                        <TeamOutlined />
                         <span>{ v.name }</span>
                     </span>
                 }
@@ -90,7 +105,16 @@ class App extends React.Component {
                         </div>
                         <div className="content-page">
                             <div className="page">
-                                <Home></Home>
+                                <Switch>
+                                    <Route exact path='/'> <Welcome/> </Route>
+                                    <Route path='/practice/index'> <PracticeIndex/> </Route>
+                                    <Route path='/practice/param/:id'> <ReactComponent/> </Route>
+                                    <Route path='/third/sheet-js'> <SheetJs/> </Route>
+                                    <Route path='/third/html2canvas'> <Html2Canvas/></Route>
+                                    <Route path='/third/jsPdf'> <JsPdf/></Route>
+                                    <Route path='/canvas/canvas'> <Canvas/> </Route>
+                                    <Route path='/canvas/drawBoard'> <DrawBoard/> </Route>
+                                </Switch>
                             </div>
                             <footer className="footer">copy-right</footer>
                         </div>

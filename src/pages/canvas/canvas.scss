@@ -1,12 +1,13 @@
 .cus-canvas{
-    background: rgb(50, 204, 243) url(https://images.pexels.com/photos/2383314/pexels-photo-2383314.jpeg) no-repeat center/contain;
+    background: rgb(50, 204, 243);
 }
 
 .input-ele{
     display: none;
     position: fixed;
-    width: 200px;
-    background-color: red;
+    width: 180px;
+    border: 0;
+    background-color: #fff;
 }
 
 .draw-board{

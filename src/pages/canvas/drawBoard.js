@@ -31,8 +31,8 @@ export default class Canvas extends Component {
         let sx = '', sy= '';
         const draw = (x,y) => {
             ctx.beginPath();
-            ctx.lineWidth = 5;
             ctx.strokeStyle = randomColor();
+            // ctx.strokeStyle = 'black';
             ctx.moveTo(sx, sy);
             /** 将结束位置设置为下一次起始位置 */
             sx = x-cl;
@@ -41,6 +41,12 @@ export default class Canvas extends Component {
             ctx.stroke();
         }
         canvas.onmousedown = function(e){ 
+            ctx.lineWidth = 2;
+            ctx.lineJoin='round'
+            ctx.lineCap = 'round';
+            ctx.shadowBlur = 1;
+            ctx.shadowColor = 'rgb(0, 0, 0)';
+            
             mouseDown = true
             sx = e.clientX - cl;
             sy = e.clientY - ct;

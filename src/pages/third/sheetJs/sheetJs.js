@@ -27,6 +27,7 @@ export default class SheetJs extends Component{
             ['h1','h2','h3', 'h4'], 
             [1,2,3,4],
             [true, false, null, 5],
+            [true, false, null, '中文'],
         ], '表格')
     }
 
