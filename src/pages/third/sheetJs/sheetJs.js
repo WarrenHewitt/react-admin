@@ -4,13 +4,7 @@ import { Button } from 'antd';
 
 export default class SheetJs extends Component{
 
-    componentDidMount() {
-
-        var a = {
-            '!merge': 'nihao'
-        }
-        console.log(a['!merge']);
-    }
+    componentDidMount() {}
 
     exportData = () => {
         /**
@@ -40,27 +34,27 @@ export default class SheetJs extends Component{
         ], '表格')
     }
 
+    /* 表格合并 */
     mergeTable = () => {
-        const ws = XLSX.utils.aoa_to_sheet([['a', 'b', 'c', 'd'],[1,2,3, null]])
+        const ws = XLSX.utils.aoa_to_sheet([['a', 'b', 'c', 'd', 'e'],[1,2,3, 'merge', 5], [11,null,31, null, 51]])
         const wb = XLSX.utils.book_new()
         XLSX.utils.book_append_sheet(wb, ws, 'sheetname')
 
+        console.log('导出数据',ws);
+
         ws['!merges'] = [
-            { s: { r:0 ,c:3 }, e: { r: 1, c: 3} }
+            { s: { r:1 ,c:3 }, e: { r: 2, c: 3} },
+            { s: { r:2 ,c:0 }, e: { r: 2, c: 1} },
         ]
 
         XLSX.writeFile(wb, 'excelname.xlsx');
-
     }
 
     tableToExcel= () => {
-        this.mergeTable()
-        // var elt = document.getElementById('data-table');
-        // /* 将一个table DOM 转换为 */
-        // var wb = XLSX.utils.table_to_book(elt, {sheet:"Sheet JS"});
-        // XLSX.writeFile(wb,'test.xlsx');
-        // return dl ?
-        //     XLSX.write(wb, {bookType:type, bookSST:true, type: 'base64'}) :
+        var elt = document.getElementById('data-table');
+        /* 将一个table DOM 转换为 */
+        var wb = XLSX.utils.table_to_book(elt, {sheet:"Sheet JS"});
+        XLSX.writeFile(wb,'test.xlsx');
     }
 
     render() {
@@ -72,15 +66,18 @@ export default class SheetJs extends Component{
                     3. xlsx为Excel2007或以上版本的格式
             </pre>
             <div>
+                <p>表格可以隐藏</p>
                 <table id="data-table" border="1">
                     <tbody>
-                        <tr><td contentEditable="true" colSpan="4">Some merged cell</td></tr>
-                        <tr><td contentEditable="true">This</td><td contentEditable="true">is</td><td contentEditable="true">a</td><td contentEditable="true">Test</td></tr>
+                        <tr><td colSpan="4" style={{ background: 'red' }}>Some merged cell</td></tr>
+                        <tr><td>This</td><td>is</td><td>a</td><td>Test</td></tr>
                     </tbody>
                 </table>
             </div>
+            <br/>
             <Button type="primary" onClick={this.exportData}>导出</Button>
-            <Button type="primary" onClick={this.tableToExcel}>导出html table</Button>
+            <div style={{margin: '10px 0'}}><Button type="primary" onClick={this.tableToExcel}>导出合并了单元格的html table</Button></div>
+            <div style={{margin: '10px 0'}}><Button type="primary" onClick={this.mergeTable}>合并单元格</Button></div>
         </div>)
     }
 }
