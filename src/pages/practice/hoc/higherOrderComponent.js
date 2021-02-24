@@ -1,7 +1,7 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import { Button } from 'antd';
-
-export default (paramsObj = {
+const exp = (paramsObj = {
     type: 'one'
 }) => (InputComponent) => class HOC extends Component {
     /**
@@ -46,3 +46,4 @@ export default (paramsObj = {
         </div>)
     }
 }
+export default exp

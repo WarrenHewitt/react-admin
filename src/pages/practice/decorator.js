@@ -1,45 +1,45 @@
 // import React, { Component } from 'react';
-import { deprecate } from 'core-decorators';
+// import { deprecate } from 'core-decorators';
 
-@addStaticProperty
+// @addStaticProperty
 class DecoratorClass {
     constructor() {
         this.name = 'con-name'
     }
 
-    @deprecate('We stopped facepalming')
+    // @deprecate('We stopped facepalming')
     facepalmHard() { }
 
-    @log
+    // @log
     add(a, b) {
         return a + b;
     }
 
-    @readonly
+    // @readonly
     getName() {
         console.log('getName', this.name);
     }
 }
 
-function addStaticProperty(target) {
-    target.SName = 'name-core'
-}
+// function addStaticProperty(target) {
+//     target.SName = 'name-core'
+// }
 
-function readonly(target, name, descriptor) {
-    console.log('readonly fn：', name); // readonly fn： getName
-    descriptor.writable = false;
-    return descriptor;
-}
+// function readonly(target, name, descriptor) {
+//     console.log('readonly fn：', name); // readonly fn： getName
+//     descriptor.writable = false;
+//     return descriptor;
+// }
 
-function log(target, name, descriptor) {
-    var oldValue = descriptor.value;
-    descriptor.value = function () {
-        console.log(`Calling ${name} method`);
-        return oldValue.apply(this, arguments);
-    };
+// function log(target, name, descriptor) {
+//     var oldValue = descriptor.value;
+//     descriptor.value = function () {
+//         console.log(`Calling ${name} method`);
+//         return oldValue.apply(this, arguments);
+//     };
 
-    return descriptor;
-}
+//     return descriptor;
+// }
 
 const dc = new DecoratorClass();
 

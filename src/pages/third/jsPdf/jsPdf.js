@@ -43,7 +43,7 @@ class JsPdfC extends Component{
                 <table border="1">
                     <tbody>
                         <tr><td>1</td><td>2</td><td>3</td></tr>
-                        <tr><td>a</td><td>b</td><td><img className="ti" src={ require('../../../public/logo.png')} alt="no"></img></td></tr>
+                        <tr><td>a</td><td>b</td><td><img className="ti" src={ require('../../../assets/logo.png')} alt="no"></img></td></tr>
                     </tbody>
                 </table>
             </div>

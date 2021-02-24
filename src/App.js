@@ -1,11 +1,13 @@
 import React from 'react';
-// import { Button } from 'antd';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './style/index.scss';
+import 'antd/dist/antd.css';
 import { Menu } from 'antd';
 import { TeamOutlined } from '@ant-design/icons';
 
-import logo from './public/logo.png';
+import logo from './assets/logo.png';
+
+import route from './route/route'
 
 /**
  * @des 页面组件 
@@ -13,6 +15,7 @@ import logo from './public/logo.png';
 import Welcome from './pages/welcome/welcome';
 import ReactComponent from './pages/practice/react';
 import PracticeIndex from './pages/practice/index';
+import Hooks from './pages/practice/hooks/hooks';
 
 import SheetJs from './pages/third/sheetJs/sheetJs';
 import Html2Canvas from './pages/third/html2Canvas/html2Canvas';
@@ -33,37 +36,7 @@ const Header = () => {
 class App extends React.Component {
     state = {
         collapsed: false,
-        menuList: [{
-            id: '1',
-            icon: 'desktop',
-            name: 'practice',
-            children: [{
-                id: '1-1',
-                name: 'index',
-                url: '/practice/index',
-            }, {
-                id: '1-2',
-                name: 'react',
-                url: '/practice/param/react',
-            }]
-        }, {
-            id: '2',
-            name: '第三方库示例',
-            icon: 'desktop',
-            children: [
-                { id: '2-1', name: 'sheetJs', url: '/third/sheet-js' },
-                { id: '2-2', name: 'html2canvas', url: '/third/html2canvas' },
-                { id: '2-3', name: 'jsPdf', url: '/third/jsPdf' },
-            ]
-        }, {
-            id: '3',
-            name: 'canvas',
-            icon: 'desktop',
-            children: [
-                { id: '3-1', name: 'canvas-移动', url: '/canvas/canvas' },
-                { id: '3-2', name: 'canvas-画布', url: '/canvas/drawBoard' }
-            ]
-        }]
+        menuList: route
     };
 
     toggleCollapsed = () => {
@@ -107,11 +80,15 @@ class App extends React.Component {
                             <div className="page">
                                 <Switch>
                                     <Route exact path='/'> <Welcome/> </Route>
+                                    
                                     <Route path='/practice/index'> <PracticeIndex/> </Route>
                                     <Route path='/practice/param/:id'> <ReactComponent/> </Route>
+                                    <Route path='/practice/hooks'> <Hooks/> </Route>
+
                                     <Route path='/third/sheet-js'> <SheetJs/> </Route>
                                     <Route path='/third/html2canvas'> <Html2Canvas/></Route>
                                     <Route path='/third/jsPdf'> <JsPdf/></Route>
+                                    
                                     <Route path='/canvas/canvas'> <Canvas/> </Route>
                                     <Route path='/canvas/drawBoard'> <DrawBoard/> </Route>
                                 </Switch>
