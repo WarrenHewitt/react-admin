@@ -9,6 +9,10 @@ import './decorator';
 import UseHoc from './hoc/useHoc'
 import BeClone from './temp'
 
+
+/** hooks 实践 */
+import Hooks from './hooks/hooks.js'
+
 const FunComponent = () => {
     return  <h3>这是创建的函数组件</h3>
 }
@@ -45,6 +49,11 @@ class ReactComponent extends Component{
            
             <div className="custom-part">
                 装饰器示例，查看控制台输出
+            </div>
+            <div className="custom-part">
+                <hr/>
+                <h2>Hooks 实践</h2>
+                <Hooks/>
             </div>
         </div>);
     }

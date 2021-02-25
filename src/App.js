@@ -30,6 +30,12 @@ const Header = () => {
     </header>);
 }
 
+/**
+ * 参考
+ * https://github.com/marmelab/react-admin
+ * https://github.com/yezihaohao/react-admin
+ */
+
 class App extends React.Component {
     state = {
         collapsed: false,

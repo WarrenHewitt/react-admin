@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Input } from 'antd';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // @ts-ignore
 class Practice extends Component {
     constructor(props) {
@@ -23,8 +23,4 @@ class Practice extends Component {
         </div>);
     }
 }
-
-Practice.childContextTypes = {
-    inputValue: PropTypes.string
-};
 export default Practice;
