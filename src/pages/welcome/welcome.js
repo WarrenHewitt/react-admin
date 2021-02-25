@@ -1,4 +1,5 @@
-import { Component }  from 'react';
+import React, { Component }  from 'react';
+import Text from './t.js'
 
 class Welcome extends Component {
     componentDidMount = () => {
@@ -6,7 +7,9 @@ class Welcome extends Component {
     }
 
     render() {
-        return 'welcome'
+        return (<div>
+            <Text/>
+        </div>)
     }
 }
 

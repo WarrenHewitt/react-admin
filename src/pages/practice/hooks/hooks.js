@@ -1,7 +1,8 @@
-import React, { Component, useState } from "react"
+import React, { useState } from "react"
 import { Button } from 'antd'
 
-function Hook1 () {
+
+function Hooks() {
     let [ count, setCount ] = useState(0)
     let [ count1, setCount1 ] = useState(23333)
     /* 用于比较差异 */
@@ -13,15 +14,5 @@ function Hook1 () {
         <Button onClick={ () => count2++ }>按钮2</Button>
     </div>)
 }
-
-class Hooks extends Component {
-    render() {
-        return (<div>
-            nihao
-            <Hook1/>
-        </div>)
-    }
-}
-
 
 export default Hooks

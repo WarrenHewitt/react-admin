@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import decoratorWrap from './decoratorWrap';
+// import decoratorWrap from './decoratorWrap';
 
-@decoratorWrap
+// @decoratorWrap
 class ComponentThree extends Component{
     render() {
         return(<div>
