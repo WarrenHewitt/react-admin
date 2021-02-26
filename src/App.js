@@ -17,6 +17,8 @@ import ReactComponent from './pages/practice/react';
 import PracticeIndex from './pages/practice/index';
 import Hooks from './pages/practice/hooks/hooks';
 
+import Redux from './pages/redux/redux';
+
 import SheetJs from './pages/third/sheetJs/sheetJs';
 import Html2Canvas from './pages/third/html2Canvas/html2Canvas';
 import JsPdf from './pages/third/jsPdf/jsPdf';
@@ -90,6 +92,8 @@ class App extends React.Component {
                                     <Route path='/practice/index'> <PracticeIndex/> </Route>
                                     <Route path='/practice/param/:id'> <ReactComponent/> </Route>
                                     <Route path='/practice/hooks'> <Hooks/> </Route>
+
+                                    <Route path='/redux/redux'> <Redux/> </Route>
 
                                     <Route path='/third/sheet-js'> <SheetJs/> </Route>
                                     <Route path='/third/html2canvas'> <Html2Canvas/></Route>

@@ -11,6 +11,14 @@ const routes = [{
         { id: '1-3', name: 'hooks', url: '/practice/hooks',},
     ]
 }, {
+    id: '11',
+    icon: 'desktop',
+    name: 'redux',
+    children: [
+        { id: '11-1', name: 'redux实现', url: '/redux/redux', }, 
+    ]
+},
+{
     id: '2',
     name: '第三方库示例',
     icon: 'desktop',

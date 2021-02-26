@@ -22,8 +22,7 @@
 
 - `xlsx`
 
-- 如果出现了 You are using a whole package of antd 请安装 
-https://ant.design/docs/react/getting-started-cn#%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD
+- 如果出现了 You are using a whole package of antd 请安装 `babel-plugin-import`； 本项目是执行了 eject 操作，否则安装了该插件也会失效
 
 # 项目/文件说明
 
