@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './App.css';
 import './style/index.scss';
 import { Menu } from 'antd';
@@ -8,23 +8,7 @@ import { TeamOutlined } from '@ant-design/icons';
 import logo from './assets/logo.png';
 
 import route from './route/route'
-
-/**
- * @des 页面组件 
- * */ 
-import Welcome from './pages/welcome/welcome';
-import ReactComponent from './pages/practice/react';
-import PracticeIndex from './pages/practice/index';
-import Hooks from './pages/practice/hooks/hooks';
-
-import Redux from './pages/redux/redux';
-
-import SheetJs from './pages/third/sheetJs/sheetJs';
-import Html2Canvas from './pages/third/html2Canvas/html2Canvas';
-import JsPdf from './pages/third/jsPdf/jsPdf';
-
-import Canvas from './pages/canvas/canvas';
-import DrawBoard from './pages/canvas/drawBoard';
+import SwitchCom from './route/switch'
 
 const { SubMenu } = Menu;
 
@@ -64,7 +48,7 @@ class App extends React.Component {
                     </span>
                 }
             >
-                { v.children ? v.children.map(val => (<Menu.Item key={val.id}><Link to={ val.url }>{ val.name }</Link></Menu.Item>)) : '' }
+                { v.children ? v.children.map(val => (<Menu.Item key={val.id}><Link to={ val.path }>{ val.name }</Link></Menu.Item>)) : '' }
             </SubMenu>)
         })
 
@@ -85,24 +69,7 @@ class App extends React.Component {
                             </Menu>
                         </div>
                         <div className="content-page">
-                            <div className="page">
-                                <Switch>
-                                    <Route exact path='/'> <Welcome/> </Route>
-                                    
-                                    <Route path='/practice/index'> <PracticeIndex/> </Route>
-                                    <Route path='/practice/param/:id'> <ReactComponent/> </Route>
-                                    <Route path='/practice/hooks'> <Hooks/> </Route>
-
-                                    <Route path='/redux/redux'> <Redux/> </Route>
-
-                                    <Route path='/third/sheet-js'> <SheetJs/> </Route>
-                                    <Route path='/third/html2canvas'> <Html2Canvas/></Route>
-                                    <Route path='/third/jsPdf'> <JsPdf/></Route>
-                                    
-                                    <Route path='/canvas/canvas'> <Canvas/> </Route>
-                                    <Route path='/canvas/drawBoard'> <DrawBoard/> </Route>
-                                </Switch>
-                            </div>
+                            <SwitchCom/>
                             <footer className="footer">copy-right</footer>
                         </div>
                     </section>
