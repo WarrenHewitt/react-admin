@@ -5,7 +5,7 @@ import './style/index.scss';
 import { Menu } from 'antd';
 import { TeamOutlined } from '@ant-design/icons';
 
-import logo from './assets/logo.png';
+import logo from '@/assets/logo.png';
 
 import route from './route/route'
 import SwitchCom from './route/switch'

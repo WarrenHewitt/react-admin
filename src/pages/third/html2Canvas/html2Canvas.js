@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { Table, Button } from 'antd';
 import html2canvas from 'html2canvas';
 
+import logo from '@/assets/logo.png';
+
 import './h2c.scss';
 
 const columns = [
@@ -71,7 +73,7 @@ class Html2CanvasC extends Component{
                 <div className="buttonWrapper">
                     <Button type="primary" onClick={ this.generateCanvas }>生成canvas</Button>
                 </div>
-                <div><img className="ti" src={ require('../../../assets/logo.png')} alt="no"></img></div>
+                <div><img className="ti" src={ logo } alt="no"></img></div>
             </div>
             <div id="canvasWrapper"></div>
         </div>)
