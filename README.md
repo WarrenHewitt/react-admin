@@ -18,7 +18,7 @@
 
 - `html2canvas` 
 
-- `jspdf`
+- `jspdf` pdf处理
 
 - `xlsx`
 
